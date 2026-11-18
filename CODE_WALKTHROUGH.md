@@ -26,9 +26,9 @@ Everything visual is in this one `<style>` block, about 162 lines.
 - **Base rules:** `box-sizing:border-box` everywhere; `scroll-behavior:smooth` so anchor links glide instead of jumping; `body` uses IBM Plex Sans at 1.6 line height. `body::before` draws the faint vertical/horizontal grid lines and the blue glow at the top; `body::after` draws the faint dot pattern that fades out down the page.
 - **`.wrap`:** the centred content column, max 1160px wide, with 22px side padding.
 - **Nav (`header`, `.nav`, `.logo`, `.navlinks`, `.btn`):** the sticky top bar with a blurred dark background, the round dragon-sigil logo mark, the section links, and the pill buttons. `.btn-primary` is the filled blue button. Two media queries hide most nav links on narrow screens.
-- **Hero (`.hero`, `.hero-grid`, `.eyebrow`, `h1`, `.role`, `.lede`, `.hero-ctas`, `.hero-meta`, `.chip`):** a two-column grid (text left, dragon card right) that collapses to one column under 900px. `h1` uses `clamp()` so the name scales from 44px on phones to 76px on desktop. The eyebrow pill, the glowing blue full stop after ROBERTSON, and the chips (Python, IBM certificates, LAFS May 2027, Lehman Fall 2027, Hickey Dec 2011) all live here.
-- **Dragon card (`.dragon-card`, `.dragon-caption`, `.badge`):** the square video/image card with a dark gradient overlay at the bottom, the "THE DRAGON STANDARD" caption, and the blue "Gravity Blue #00BFFF" badge.
-- **Stats (`.stats`, `.stat`):** the four boxes under the hero — AI Evaluation, 4 Languages, 3 Instruments, 2 IBM Professional Certificates — in four columns, two on small screens.
+- **Introduction (`.hero`, `.hero-grid`, `.eyebrow`, `h1`, `.role`, `.lede`, `.hero-ctas`, `.hero-meta`, `.chip`):** a two-column grid (text left, video card right) that collapses to one column under 900px. `h1` uses `clamp()` so the name scales from 44px on phones to 76px on desktop. The eyebrow pill, the glowing blue full stop after ROBERTSON, and the chips (Python, IBM certificates, LAFS May 2027, Lehman Fall 2027, Hickey Dec 2011) all live here.
+- **Video card (`.dragon-card`, `.dragon-caption`, `.badge`):** the square video/image card with a dark gradient overlay at the bottom and a caption giving the name and role.
+- **Stats (`.stats`, `.stat`):** the four boxes under the introduction — AI Evaluation, 4 Languages, 3 Instruments, 2 IBM Professional Certificates — in four columns, two on small screens.
 - **Sections (`.sec-head`, `.kicker`, `.sigil`, `.grid2`, `.grid3`, `.card`):** every section shares the same pattern: a numbered kicker ("01 — About Me") with a small sigil, a big Chakra Petch heading, and a muted paragraph on the right. `.grid2` and `.grid3` are the two- and three-column card layouts, collapsing to one column under 900px.
 - **About (`.about-card`, `.tags`, `.tag`):** the highlighted about card with a blue radial glow, and the pill tags for the Top Skills (blue tags) and the other skills.
 - **Skills (`.skill-row`, `.bar`):** the skill bars. The filled width is set inline in the HTML (`style="width:72%"` for Python, 78% HTML/CSS, 62% JavaScript, 55% Java, 90% AI Evaluation & Rubrics), and the gradient fill runs from deep blue to light blue with a blue glow.
@@ -38,26 +38,26 @@ Everything visual is in this one `<style>` block, about 162 lines.
 - **Contact (`.cta-band`):** the bordered call-to-action band with a blue radial glow, the "Let's build something reliable." heading, and the contact buttons.
 - **Footer:** a top border, the copyright line, and "Jake Robertson — AI Portfolio · Built in HTML / CSS / JavaScript".
 - **Chatbot styles (`.chat-fab`, `.chat-panel`, `.chat-head`, `.chat-body`, `.msg`, `.quick`, `.chat-form`, `.typing`):** the fixed blue "Ask Jake's Assistant" button at the bottom right, the chat panel that is hidden until `.open` is added, bot messages on the left in dark panels, user messages on the right in blue, the quick-prompt pills, and the input form.
-- **Responsive rules:** the `@media` blocks at 760px, 520px, 900px, 800px, 700px and 560px shrink the nav, the hero, the stats and the grids for phones, and `@media (prefers-reduced-motion: reduce)` turns off smooth scrolling for people who ask for reduced motion.
+- **Responsive rules:** the `@media` blocks at 760px, 520px, 900px, 800px, 700px and 560px shrink the nav, the introduction, the stats and the grids for phones, and `@media (prefers-reduced-motion: reduce)` turns off smooth scrolling for people who ask for reduced motion.
 
 ## 3. The navigation bar — lines 174–182
 
 A sticky `<header>` with the logo (dragon sigil + "JAKE ROBERTSON" + "AI Engineer — NYC") linking to `#top`, and nav links to `#about`, `#skills`, `#certifications`, `#projects`, `#hobbies` and `#contact`, plus an "Ask the Assistant" button that calls `toggleChat(true)` to open the chatbot.
 
-## 4. The hero — lines 184–217
+## 4. The introduction — lines 184–217
 
 - **Eyebrow pill:** "Jake Robertson — AI Portfolio" with a small sigil.
 - **`h1`:** "JAKE ROBERTSON." in huge Chakra Petch type, with the full stop in glowing blue.
 - **Role and location:** "AI Engineer" and "📍 New York, NY · Data Specialist / AI Trainer".
-- **`.lede`:** the goal statement — the firm goal of becoming an AI Engineer and Software Engineer, working toward it by evaluating AI systems, testing models, refining prompts, and turning raw data into reliable, human-centred products.
-- **Call-to-action buttons:** "View Projects →" (jumps to `#projects`), "Chat with my Dragon Assistant" (opens the chatbot), "Resume & Skills" (jumps to `#skills`).
+- **`.lede`:** the introduction, written as if speaking to an interviewer — an applied AI engineer based in New York who evaluates AI systems, designs the training tasks that improve them, and builds toward engineering reliable, human-centred AI products.
+- **Call-to-action buttons:** "View Projects →" (jumps to `#projects`), "Ask My Assistant" (opens the chatbot), "Resume & Skills" (jumps to `#skills`).
 - **Chips:** Python · HTML/CSS · JavaScript · Java; IBM Professional Certificates in progress; Music Production Bachelor's May 2027; Lehman B.S. CS Fall 2027; Graphic Design Associates Degree, Hickey College, Dec 2011.
-- **Dragon card:** a `<video>` (autoplay, muted, loop, playsinline, with `assets/dragon-peak.webp` as the poster and fallback image) of the black dragon on the mountain peak, with the caption "THE DRAGON STANDARD — Precision. Patience. Power — held in reserve until it matters." and the "Gravity Blue #00BFFF" badge.
+- **Video card:** a `<video>` (autoplay, muted, loop, playsinline, with `assets/dragon-peak.webp` as the poster and fallback image), with a caption giving the name and role.
 - **Stats row:** the four stat boxes described in the CSS section above.
 
 ## 5. About — lines 220–243
 
-Section `id="about"`, kicker "01 — About Me", heading "Data Specialist. AI Trainer. Builder." Two cards: the about card with the full introduction (applied AI engineer and AI domain task architect, token-level model mechanics, context engineering, Ground Truth, multi-agent comparison, Mercor work) and the Top Skills tags; and a "What sets me apart" card listing evaluator + architect + engineer, creative technologist, detail-obsessed, and the clear path (IBM certificates, LAFS May 2027, Hickey, Lehman Fall 2027).
+Section `id="about"`, kicker "01 — About Me", heading "Evaluation, architecture, and engineering." Two cards: the about card with the full introduction (applied AI engineer and AI domain task architect, token-level model mechanics, context engineering, Ground Truth, multi-agent comparison, Mercor work) and the Top Skills tags; and a "What I bring to a team" card listing evaluator + architect + engineer, creative technologist, detail-obsessed, and the clear path (IBM certificates, LAFS May 2027, Hickey, Lehman Fall 2027).
 
 ## 6. Skills and resume — lines 246–281
 
@@ -77,7 +77,7 @@ Section `id="hobbies"`, kicker "04 — Hobbies & Music", heading "Instruments & 
 
 ## 10. Contact — lines 339–345
 
-Section `id="contact"`, the `.cta-band`: "Let's build something reliable." with the note that Jake is interested in AI Trainer / Evaluator, AI Data and junior AI Engineer roles, and collaborations in AI + music technology. The buttons are "Ask the Dragon Assistant" (opens the chatbot), GitHub — @Xado-TheDarkEngineer, LinkedIn — Jay Robertson, "Review Projects" and "Back to Top ↑". No phone number or email is published on the page.
+Section `id="contact"`, the `.cta-band`: "Let's build something reliable." with the note that Jake is interested in AI Trainer / Evaluator, AI Data and junior AI Engineer roles, and collaborations in AI + music technology. The buttons are "Ask Jake’s Assistant" (opens the chatbot), GitHub — @Xado-TheDarkEngineer, LinkedIn — Jay Robertson, "Review Projects" and "Back to Top ↑". No phone number or email is published on the page.
 
 ## 11. Footer — line 347
 
@@ -85,18 +85,18 @@ Section `id="contact"`, the `.cta-band`: "Let's build something reliable." with 
 
 ## 12. The chatbot HTML — lines 350–356
 
-- A fixed floating button (`.chat-fab`, `id="chatFab"`) — "Ask Jake's Assistant" with the dragon sigil — that calls `toggleChat()`.
-- The hidden chat panel (`.chat-panel`, `id="chatPanel"`, `role="dialog"`): a header with the sigil avatar and "Dragon Assistant — Answers from this page only · No made-up claims", an empty `.chat-body` (`id="chatBody"`) that JavaScript fills with messages, a `.quick` row (`id="quickPrompts"`) that JavaScript fills with quick-prompt buttons, and a form (`.chat-form`, `id="chatForm"`) with the input (`id="chatInput"`, placeholder "Ask about skills, projects, education…") and a Send button.
+- A fixed floating button (`.chat-fab`, `id="chatFab"`) — "Ask Jake's Assistant" — that calls `toggleChat()`.
+- The hidden chat panel (`.chat-panel`, `id="chatPanel"`, `role="dialog"`): a header with "Jake’s Assistant — Answers from this page only · No made-up claims", an empty `.chat-body` (`id="chatBody"`) that JavaScript fills with messages, a `.quick` row (`id="quickPrompts"`) that JavaScript fills with quick-prompt buttons, and a form (`.chat-form`, `id="chatForm"`) with the input (`id="chatInput"`, placeholder "Ask about skills, projects, education…") and a Send button.
 
-## 13. The JavaScript, part 1 — the dragon video — lines 358–370
+## 13. The JavaScript, part 1 — the video — lines 358–370
 
-A small immediately-invoked function that finds `.dragon-video`, forces it muted, and respects `prefers-reduced-motion`: if the visitor asked for reduced motion, it removes autoplay and pauses the video; otherwise it plays it, swallowing any autoplay error. It also listens for the setting changing while the page is open.
+A small immediately-invoked function that finds the video (`.dragon-video` in the code), forces it muted, and respects `prefers-reduced-motion`: if the visitor asked for reduced motion, it removes autoplay and pauses the video; otherwise it plays it, swallowing any autoplay error. It also listens for the setting changing while the page is open.
 
 ## 14. The JavaScript, part 2 — the chatbot — lines 372–418
 
 - **`KB` (the knowledge base):** an array of 14 entries. Each entry has `k`, a list of keywords, and `a`, the answer. The topics are graphic design, skills, Mercor work, certifications, projects, ABYSS, GRAVITY, STRATA, instruments/music, education, location, contact, who Jake is, and greetings. Every answer is written from the content on the page itself — the chatbot never invents facts.
 - **`FALLBACK`:** the reply when no keywords match — "I can only answer from what's on this page", followed by suggested topics.
-- **`toggleChat(force)`:** opens or closes the panel, hides the floating button while the panel is open, and on first open sends the greeting message ("Hi — I'm the Dragon Assistant for Jake Robertson…") and focuses the input.
+- **`toggleChat(force)`:** opens or closes the panel, hides the floating button while the panel is open, and on first open sends the greeting message ("Hi — I'm Jake's assistant…") and focuses the input.
 - **`addMsg(text, who)`:** creates a message bubble (`.msg bot` or `.msg user`), adds it to the chat body, and scrolls to the bottom.
 - **`answer(q)`:** lowercases the question, then scores every KB entry — a matched keyword longer than 4 characters scores 2, a shorter one scores 1 — and returns the highest-scoring entry's answer, or the FALLBACK if nothing matched.
 - **Form submit handler:** on submit it stops the page reloading, reads and clears the input, adds the question as a user message, adds a temporary "Thinking…" message, and after 420 milliseconds replaces it with the answer.
@@ -104,7 +104,7 @@ A small immediately-invoked function that finds `.dragon-video`, forces it muted
 
 ## How to change things
 
-- **Text content:** edit the HTML in the matching section (hero, about, skills, certifications, projects, hobbies, contact).
+- **Text content:** edit the HTML in the matching section (introduction, about, skills, certifications, projects, hobbies, contact).
 - **Colours:** edit the `--blue`, `--blue2` and `--deep` variables in `:root` at the top of the `<style>` block.
 - **Chatbot answers:** edit the `a` strings in the `KB` array, or add a new entry with its own `k` keyword list.
 - **The "Learn More" button:** replace `href="#"` in the SyEn3rgy Music card with the final URL.
