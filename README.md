@@ -22,7 +22,7 @@ Plain HTML, CSS, and JavaScript. No build step. Open `index.html` in a browser, 
 
 ## Code walkthrough
 
-See [CODE_WALKTHROUGH.md](CODE_WALKTHROUGH.md) — a run-through of all the code used to build the site, with an explanation of what each part refers to: the head and fonts, the CSS variables and layout, the navigation, hero, about, skills, certifications, projects, hobbies and contact sections, the footer, the chatbot HTML, the dragon-video script, and the chatbot knowledge base and answer logic.
+See [CODE_WALKTHROUGH.md](CODE_WALKTHROUGH.md) — a run-through of all the code used to build the site, with an explanation of what each part refers to: the head and fonts, the CSS variables and layout, the navigation, introduction, about, skills, certifications, projects, hobbies and contact sections, the footer, the chatbot HTML, the video script, and the chatbot knowledge base and answer logic.
 
 ## Notes
 
