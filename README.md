@@ -7,8 +7,10 @@ Jake Robertson's AI portfolio site. Cinematic, dark, minimalistic and clean.
 ## What's in it
 
 - Hero with the Electric Blue Dragon emblem and looping dragon video
-- About Me — Data Specialist / AI Trainer
-- Resume / Skills
+- About Me — Applied AI engineer and AI domain task architect
+- Resume / Skills — including Top Skills (Context Engineering, Token Prediction, Prompt Engineering, RLHF, RAG, Python, Synthetic Data Generation, Large Language Models, Generative AI, AI Data Annotation & Evaluation), and Haitian Creole — Elementary
+- Certifications — nine certifications (Mercor, IBM, Marquis Who's Who, LinkedIn), plus the two IBM Professional Certificates in progress
+- Experience — AI Domain Task Architect & Synthetic Data Specialist, Mercor (Oct 2026–Present); AI Evaluation Specialist, Project Horn (Nov 2026–Nov 17, 2026, concluded); coursework toward a B.S. in Business Administration, Colorado Technical University (Feb 2023–Mar 2024)
 - Projects — ABYSS, GRAVITY, and STRATA, Decent Sampler virtual instruments, with their actual interface panels and concept artwork
 - Hobbies
 - Contact
