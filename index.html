@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<link rel="icon" type="image/webp" href="assets/dragon-sigil.webp"/>
+<title>Jake Robertson — AI Engineer | New York, NY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070a; --bg2:#080c11; --panel:#0b1017; --panel2:#0e141d;
+  --line:rgba(0,191,255,.18); --line2:rgba(255,255,255,.08);
+  --text:#eef6fb; --muted:#9db0bf; --muted2:#6f8699;
+  --blue:#00BFFF; --blue2:#6fdcff; --deep:#0077a8;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    linear-gradient(180deg,rgba(0,191,255,.06),transparent 28%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.015) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 72px);
+}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.06) .6px, transparent .6px);background-size:22px 22px;mask-image:linear-gradient(to bottom, black, transparent 70%)}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+button,[role="button"]{min-height:44px}
+/* NAV */
+header{position:sticky;top:0;z-index:40;background:rgba(5,7,10,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line2)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:"Chakra Petch",sans-serif;font-weight:700;letter-spacing:.04em}
+.logo-mark{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#0a111a;flex:none}
+.logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
+.logo small{display:block;font-family:"IBM Plex Mono",monospace;font-weight:400;letter-spacing:.14em;font-size:10px;color:var(--muted);text-transform:uppercase}
+.navlinks{display:flex;gap:4px;align-items:center}
+.navlinks a{text-decoration:none;font-size:14px;color:var(--muted);padding:10px 12px;border-radius:999px}
+.navlinks a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-weight:600;font-size:14px;cursor:pointer;background:transparent;color:var(--text)}
+.btn-primary{background:var(--blue);color:#00131d;border-color:var(--blue);box-shadow:0 0 0 1px rgba(0,191,255,.2), 0 10px 30px rgba(0,191,255,.22)}
+.btn-primary:hover{background:var(--blue2)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue2)}
+@media(max-width:760px){.navlinks a{display:none}.navlinks a:last-child{display:inline-flex}}
+@media(max-width:520px){.nav{height:60px}.logo{font-size:14px;gap:8px}.logo-mark{width:32px;height:32px}.logo small{font-size:8.5px}.nav .btn{padding:9px 12px;font-size:13px;white-space:nowrap}.chat-fab{right:12px;bottom:12px;padding:6px 14px 6px 6px;font-size:13.5px}.chat-fab-icon{width:32px;height:32px}.hero{padding-bottom:72px}}
+
+/* HERO */
+.hero{padding:64px 0 28px}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:36px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:36px}}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue2);border:1px solid var(--line);padding:7px 11px;border-radius:999px;background:rgba(0,191,255,.06)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue)}
+h1{font-family:"Chakra Petch",sans-serif;font-size:clamp(44px,7vw,76px);line-height:.95;letter-spacing:-.02em;margin:18px 0 12px}
+h1 span{color:var(--blue);text-shadow:0 0 28px rgba(0,191,255,.45)}
+.role{font-family:"Chakra Petch",sans-serif;font-size:clamp(20px,3vw,28px);font-weight:600;color:#d9eef9;margin:0}
+.loc{font-family:"IBM Plex Mono",monospace;color:var(--muted);font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-top:8px}
+.lede{font-size:18px;color:#c2d4e0;max-width:560px;margin:18px 0 0}
+.lede strong{color:#fff}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{font-size:13px;color:var(--muted);border:1px solid var(--line2);background:rgba(255,255,255,.03);padding:8px 11px;border-radius:999px}
+.chip b{color:#fff;font-weight:600}
+.dragon-card{position:relative;border:1px solid var(--line2);border-radius:24px;overflow:hidden;background:#070a0e;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.dragon-card img,.dragon-card video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:1/1;background:#070a0e}
+.dragon-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%, rgba(5,7,10,.88));pointer-events:none}
+.dragon-caption{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;display:flex;justify-content:space-between;gap:12px;align-items:end}
+.dragon-caption strong{font-family:"Chakra Petch",sans-serif;letter-spacing:.06em}
+.dragon-caption p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.badge{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#00131d;background:var(--blue);padding:7px 9px;border-radius:999px;white-space:nowrap;font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0 8px}
+@media(max-width:800px){.stats{grid-template-columns:1fr 1fr}}
+.stat{border:1px solid var(--line2);background:linear-gradient(180deg, var(--panel2), var(--panel));border-radius:16px;padding:16px}
+.stat b{font-family:"Chakra Petch",sans-serif;font-size:20px;display:block}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* SECTIONS */
+section{padding:56px 0}
+.sec-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}
+.sec-head h2{font-family:"Chakra Petch",sans-serif;font-size:clamp(28px,4vw,40px);line-height:1;margin:8px 0 0}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:8px}
+.sigil{width:20px;height:20px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex:none;display:block}
+.eyebrow .sigil{width:17px;height:17px}
+.sec-head p{color:var(--muted);max-width:520px;margin:0}
+@media(max-width:700px){.sec-head{flex-direction:column;align-items:start}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.grid3,.grid2{grid-template-columns:1fr}}
+.card{border:1px solid var(--line2);background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));border-radius:var(--radius);padding:22px}
+.card h3{font-family:"Chakra Petch",sans-serif;margin:0 0 8px;font-size:20px}
+.card p{color:var(--muted);margin:0}
+.card p+p{margin-top:10px}
+.about-card{border-color:var(--line);background:radial-gradient(600px 200px at 10% 0%, rgba(0,191,255,.12), transparent 60%), var(--panel);padding:28px}
+.about-card .big{font-size:20px;color:#e6f4fc;line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-size:12.5px;padding:7px 10px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:#d6e8f2}
+.tag.blue{border-color:var(--line);color:var(--blue2);background:rgba(0,191,255,.07)}
+.skill-row{margin:14px 0}
+.skill-row label{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:7px}
+.skill-row label span{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:12px}
+.bar{height:7px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--deep),var(--blue),var(--blue2));border-radius:999px;box-shadow:0 0 14px rgba(0,191,255,.5)}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{padding:14px 0;border-bottom:1px solid var(--line2);display:grid;grid-template-columns:110px 1fr;gap:14px}
+.timeline li:last-child{border-bottom:0}
+.timeline time{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--blue2);letter-spacing:.06em;padding-top:3px}
+.timeline strong{display:block}
+.timeline p{margin:3px 0 0;color:var(--muted);font-size:14.5px}
+@media(max-width:560px){.timeline li{grid-template-columns:1fr}}
+.project{overflow:hidden;padding:0;display:flex;flex-direction:column}
+.project-top{padding:22px 22px 0}
+.project-num{font-family:"IBM Plex Mono",monospace;color:var(--blue);font-size:12px;letter-spacing:.16em}
+.project h3{font-size:22px;margin-top:8px}
+.project-body{padding:0 22px 22px;display:flex;flex-direction:column;gap:14px;flex:1}
+.project-body p{flex:1}
+.mini-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.mini-list li{font-size:14px;color:#cfe2ee;padding-left:18px;position:relative}
+.mini-list li::before{content:"▸";position:absolute;left:0;color:var(--blue)}
+.inst{position:relative;overflow:hidden}
+.inst::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--blue)}
+.inst.green::before{background:#2FA866}.inst.violet::before{background:#5B7AFF}
+.inst h3{font-size:24px;letter-spacing:.04em}
+.price{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.presets span{font-size:12px;border:1px solid var(--line2);padding:6px 8px;border-radius:999px;color:var(--muted)}
+.ui-shot{margin:18px 0 0;border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#04060a;box-shadow:0 18px 44px rgba(0,0,0,.5)}
+.ui-shot img{width:100%;display:block;height:auto}
+.ui-cap{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:9px 12px;border-top:1px solid var(--line2);background:#070b11;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.ui-cap b{color:#fff;font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.ui-cap .cdot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 9px var(--blue);flex:none}
+.inst.green .ui-cap .cdot{background:#2FA866;box-shadow:0 0 9px #2FA866}
+.inst.violet .ui-cap .cdot{background:#5B7AFF;box-shadow:0 0 9px #5B7AFF}
+.art-shot{margin:12px 0 0;border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:#05070a}
+.art-shot img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
+.art-cap{padding:8px 12px;border-top:1px solid var(--line2);background:#070b11;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.subhead{font-family:"Chakra Petch",sans-serif;font-size:15px;letter-spacing:.03em;margin:22px 0 6px;padding-top:18px;border-top:1px solid var(--line2)}
+.gd-note{font-size:14.5px}
+.gd-note a{color:var(--blue2);text-decoration:none;border-bottom:1px solid var(--line)}
+.gd-note a:hover{color:#fff}
+.cta-band{border:1px solid var(--line);border-radius:22px;padding:30px;background:radial-gradient(500px 220px at 85% 0%, rgba(0,191,255,.18), transparent 60%), linear-gradient(180deg,#0c141f,#080d14);display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
+@media(max-width:800px){.cta-band{grid-template-columns:1fr}}
+.cta-band h2{font-family:"Chakra Petch",sans-serif;font-size:32px;line-height:1.05;margin:0 0 10px}
+.cta-band p{color:var(--muted);margin:0}
+footer{border-top:1px solid var(--line2);padding:26px 0 90px;color:var(--muted);font-size:13.5px}
+.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* CHATBOT */
+.chat-fab{position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#00131d;border:0;border-radius:999px;padding:8px 18px 8px 8px;font-weight:700;font-family:"Chakra Petch",sans-serif;cursor:pointer;box-shadow:0 16px 40px rgba(0,191,255,.35)}
+.chat-fab-icon{width:38px;height:38px;border-radius:50%;overflow:hidden;flex:none;border:2px solid rgba(0,19,29,.35);background:#05070a;display:block}
+.chat-fab-icon img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08)}
+.chat-panel{position:fixed;right:18px;bottom:78px;z-index:60;width:min(392px, calc(100vw - 24px));height:min(560px, calc(100dvh - 110px));background:#0a1018;border:1px solid var(--line);border-radius:20px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.65)}
+.chat-panel.open{display:flex}
+.chat-head{padding:16px;background:linear-gradient(180deg, rgba(0,191,255,.14), transparent);border-bottom:1px solid var(--line2);display:flex;gap:12px;align-items:center}
+.avatar{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:20px;background:#07111b}
+.chat-head strong{font-family:"Chakra Petch",sans-serif;display:block;line-height:1.1}
+.chat-head span{font-size:12.5px;color:var(--muted)}
+.chat-close{margin-left:auto;background:rgba(255,255,255,.06);border:1px solid var(--line2);color:#fff;border-radius:50%;width:38px;height:38px;cursor:pointer}
+.chat-body{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:86%;padding:11px 13px;border-radius:14px;font-size:14.5px;line-height:1.5}
+.msg.bot{background:#111c28;border:1px solid var(--line2);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.user{background:var(--blue);color:#00131d;align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
+.quick{display:flex;flex-wrap:wrap;gap:7px;padding:0 14px 10px}
+.quick button{min-height:36px;border-radius:999px;border:1px solid var(--line);background:rgba(0,191,255,.07);color:var(--blue2);padding:7px 10px;cursor:pointer;font-size:13px}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line2);background:#080d13}
+.chat-form input{flex:1;background:#0e1620;border:1px solid var(--line2);border-radius:999px;color:#fff;padding:11px 14px;min-height:44px;font-size:15px}
+.chat-form button{background:var(--blue);color:#00131d;border:0;border-radius:999px;padding:0 16px;font-weight:700;cursor:pointer}
+.typing{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
+@media(max-width:520px){.hero{padding-top:20px}h1{font-size:42px;margin:12px 0 8px}.lede{font-size:16px;margin-top:12px}.hero-ctas{margin-top:16px;gap:8px}.hero-meta{margin-top:14px;gap:7px}.stats{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#top"><span class="logo-mark"><img src="assets/dragon-sigil.webp" alt="Black dragon sigil"/></span><span>JAKE ROBERTSON<small>AI Engineer — NYC</small></span></a>
+  <nav class="navlinks" aria-label="Main">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#hobbies">Hobbies</a><a href="#contact">Contact</a>
+    <button class="btn btn-primary" onclick="toggleChat(true)">Ask the Assistant</button>
+  </nav>
+</div></header>
+
+<main id="top">
+<div class="wrap">
+  <!-- HERO -->
+  <div class="hero"><div class="hero-grid">
+    <div>
+      <span class="eyebrow"><img class="sigil" src="assets/dragon-sigil.webp" alt=""> Variation 01 — Electric Blue Dragon</span>
+      <h1>JAKE<br>ROBERTSON<span>.</span></h1>
+      <p class="role">AI Engineer</p>
+      <p class="loc">📍 New York, NY &nbsp;·&nbsp; Data Specialist / AI Trainer</p>
+      <p class="lede">My firm goal is to become an <strong>AI Engineer</strong> and <strong>Software Engineer</strong> — and I’m working toward it every day by evaluating AI systems, testing models, refining prompts, and turning raw data into reliable, human-centered products.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#projects">View Projects →</a>
+        <button class="btn btn-ghost" onclick="toggleChat(true)">Chat with my Dragon Assistant</button>
+        <a class="btn btn-ghost" href="#skills">Resume & Skills</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip"><b>Python</b> · HTML/CSS · JavaScript · Java</span>
+        <span class="chip">IBM Professional Certificates — <b>in progress</b></span>
+        <span class="chip">Music Production Bachelor’s — <b>May 2027</b></span>
+        <span class="chip">Lehman B.S. CS — <b>Fall 2027</b></span>
+        <span class="chip">Graphic Design Associates Degree — <b>Hickey College, Dec 2011</b></span>
+      </div>
+    </div>
+    <div class="dragon-card">
+      <video class="dragon-video" autoplay muted loop playsinline preload="auto" poster="assets/dragon-peak.webp" aria-label="Realistic black dragon with a glowing electric blue eye and deep red wing membranes perched on a rocky mountain peak, lit by electric blue rim light">
+        <source src="assets/dragon-peak.mp4" type="video/mp4"/>
+        <img src="assets/dragon-peak.webp" alt="Realistic black dragon with a glowing electric blue eye and deep red wing membranes perched on a rocky mountain peak, lit by electric blue rim light"/>
+      </video>
+      <div class="dragon-caption"><div><strong>THE DRAGON STANDARD</strong><p>Precision. Patience. Power — held in reserve until it matters.</p></div><span class="badge">Gravity Blue #00BFFF</span></div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>AI Evaluation</b><span>Model grading & QA through Mercor</span></div>
+    <div class="stat"><b>4 Languages</b><span>Python, HTML/CSS, JavaScript, Java</span></div>
+    <div class="stat"><b>3 Instruments</b><span>ABYSS · GRAVITY · STRATA for Decent Sampler</span></div>
+    <div class="stat"><b>2 IBM Professional Certificates</b><span>Generative AI Engineering & AI Developer — in progress</span></div>
+  </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head"><div><div class="kicker"><img class="sigil" src="assets/dragon-sigil.webp" alt=""/>01 — About Me</div><h2>Data Specialist.<br>AI Trainer. Builder.</h2></div><p>A music producer’s ear for detail, applied to data and AI — listening closely, judging carefully, and building systems people can trust.</p></div>
+    <div class="grid2">
+      <article class="card about-card">
+        <p class="big">I’m Jake Robertson, an AI Engineer based in New York, NY. As a Data Specialist / AI Trainer, I evaluate AI systems for quality, accuracy, and safety — the human judgment layer that makes models actually useful.</p>
+        <p>My work through Mercor focuses on AI evaluation: reviewing model outputs, applying rubrics, and catching the subtle errors automated checks miss. In parallel, I’m building the engineering foundation to create those systems myself — Python, web development, and generative AI.</p>
+        <div class="tags"><span class="tag blue">AI Evaluation</span><span class="tag">Data Quality</span><span class="tag">Prompt Review</span><span class="tag">Model QA</span><span class="tag">Human-Centered AI</span><span class="tag">Graphic Design — SyEn3rgy GraphiX</span></div>
+      </article>
+      <article class="card">
+        <h3>What sets me apart</h3>
+        <ul class="mini-list">
+          <li><strong>Evaluator + engineer:</strong> I don’t just use AI — I grade it, so I know where it fails.</li>
+          <li><strong>Creative technologist:</strong> I design and build virtual instruments end-to-end, UI to sound.</li>
+          <li><strong>Detail-obsessed:</strong> From redaction and PII handling to rubric scoring, precision is the job.</li>
+          <li><strong>On a clear path:</strong> IBM Professional Certificates now, a Bachelor’s in Music Production (LAFS, May 2027) and a Graphic Design Associates Degree (Hickey College) behind me, Lehman College B.S. Computer Science in Fall 2027.</li>
+        </ul>
+        <p style="margin-top:14px">Ask the chatbot on this page anything about my skills or projects — it answers only from what’s listed here.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- SKILLS / RESUME -->
+  <section id="skills">
+    <div class="sec-head"><div><div class="kicker"><img class="sigil" src="assets/dragon-sigil.webp" alt=""/>02 — Resume / Skills</div><h2>Skills & Training</h2></div><p>Skill-based, not task-based — capabilities built through evaluation work, coursework, and shipped creative products.</p></div>
+    <div class="grid2">
+      <article class="card">
+        <h3>Technical Skills</h3>
+        <div class="skill-row"><label>Python <span>Learning & building</span></label><div class="bar"><i style="width:72%"></i></div></div>
+        <div class="skill-row"><label>HTML / CSS <span>Portfolio & UI</span></label><div class="bar"><i style="width:78%"></i></div></div>
+        <div class="skill-row"><label>JavaScript <span>Interactive web</span></label><div class="bar"><i style="width:62%"></i></div></div>
+        <div class="skill-row"><label>Java <span>Coursework in progress</span></label><div class="bar"><i style="width:55%"></i></div></div>
+        <div class="skill-row"><label>AI Evaluation & Rubrics <span>Professional work</span></label><div class="bar"><i style="width:90%"></i></div></div>
+        <div class="tags"><span class="tag">Data Annotation</span><span class="tag">Content QA</span><span class="tag">PII Redaction</span><span class="tag">Prompt-Focused Review</span><span class="tag">Decent Sampler</span><span class="tag">UI Design</span></div>
+        <h4 class="subhead">Graphic Design — SyEn3rgy GraphiX</h4>
+        <p class="gd-note">Founder of SyEn3rgy GraphiX, LLC (started 2019) — client design work shown at <a href="https://www.instagram.com/syen3rgygraphix_official/" target="_blank" rel="noopener">@syen3rgygraphix_official</a>. Custom designs for clients, built on my Graphic Design Associates Degree (Hickey College, Dec 2011):</p>
+        <div class="tags"><span class="tag blue">Logo Design</span><span class="tag blue">Brand Identity</span><span class="tag">Business Cards</span><span class="tag">Flyers &amp; Posters</span><span class="tag">Album &amp; Magazine Covers</span><span class="tag">Book Covers</span><span class="tag">Packaging Design</span><span class="tag">T-Shirt Design</span><span class="tag">Brochures</span><span class="tag">Web Design</span><span class="tag">Social Media Graphics &amp; Banners</span><span class="tag">Professional Photo Rendering</span><span class="tag">Promotional Video &amp; Content Editing</span><span class="tag">Typography</span><span class="tag">Layout &amp; Composition</span></div>
+      </article>
+      <article class="card">
+        <h3>Experience & Education</h3>
+        <ul class="timeline">
+          <li><time>CURRENT</time><div><strong>AI Evaluation — Mercor</strong><p>AI Trainer / Data Specialist work: evaluating model deliverables, applying quality rubrics, and reviewing AI-generated content for accuracy and instruction-following.</p></div></li>
+          <li><time>2019 —</time><div><strong>SyEn3rgy GraphiX, LLC — Founder / Graphic Designer</strong><p>Client graphic design business (@syen3rgygraphix_official): logos, business cards, websites, album and magazine covers, book covers, packaging, flyers, posters, t-shirt designs, brochures, social media graphics and banners, professional photo rendering, and promotional video editing.</p></div></li>
+          <li><time>IN PROGRESS</time><div><strong>IBM Generative AI Engineering Professional Certificate</strong><p>Generative AI, RAG, and agentic AI coursework on Coursera — about halfway complete.</p></div></li>
+          <li><time>IN PROGRESS</time><div><strong>IBM AI Developer Professional Certificate</strong><p>Includes Introduction to HTML, CSS & JavaScript — building the full-stack foundation for AI products.</p></div></li>
+          <li><time>MAY 2027</time><div><strong>Bachelor’s Degree — Music Production</strong><p>The Los Angeles Film School (LAFS), online — graduating May 2, 2027. The production training behind SyEn3rgy Music and the ABYSS · GRAVITY · STRATA instrument family.</p></div></li>
+          <li><time>FALL 2027</time><div><strong>Lehman College — B.S. Computer Science</strong><p>Planned start Fall 2027 in New York, on the software / AI engineer route.</p></div></li>
+          <li><time>DEC 2011</time><div><strong>Graphic Design Associates Degree</strong><p>Hickey College — completed December 2011. The design foundation behind my UI work — layout, typography, and visual systems, first used hands-on with Java during this degree.</p></div></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-head"><div><div class="kicker"><img class="sigil" src="assets/dragon-sigil.webp" alt=""/>03 — Projects</div><h2>Selected Work</h2></div><p>Three directions, one standard: finished, polished, and built to be used — not just demoed.</p></div>
+    <div class="grid3">
+      <article class="card project"><div class="project-top"><div class="project-num">PROJECT — 01 / AI</div><h3>AI Evaluation Practice</h3></div><div class="project-body"><p>Professional evaluation of AI systems through Mercor — grading model outputs side-by-side against rubrics, checking for hallucinations, instruction failures, and unsafe or inaccurate content.</p><ul class="mini-list"><li>Rubric-based scoring & QA</li><li>Deliverable review & feedback</li><li>PII identification & redaction</li></ul><div class="tags"><span class="tag blue">AI Training</span><span class="tag">Data Specialist</span></div></div></article>
+
+      <article class="card project"><div class="project-top"><div class="project-num">PROJECT — 02 / PRODUCT</div><h3>Virtual Instrument Family</h3></div><div class="project-body"><p>A premium family of virtual instruments for Decent Sampler under SyEn3rgy Music — designed end-to-end: sound, interface, presets, and pricing. Dark, cinematic, and built like armor.</p><ul class="mini-list"><li>ABYSS — dark ambient drone</li><li>GRAVITY — weighty bass synth</li><li>STRATA — layered cinematic pads</li></ul><div class="tags"><span class="tag blue">Product Design</span><span class="tag">Sound Design</span><span class="tag">UI</span></div></div></article>
+
+      <article class="card project"><div class="project-top"><div class="project-num">PROJECT — 03 / WEB + AI</div><h3>This Portfolio & Chatbot</h3></div><div class="project-body"><p>A hand-built portfolio in HTML, CSS, and JavaScript with a working client-side assistant. The chatbot answers visitor questions about my skills and projects using only the information on this page — no made-up claims.</p><ul class="mini-list"><li>Try it: ask “What are Jake’s skills?”</li><li>Ask about ABYSS, GRAVITY, or STRATA</li><li>Ask about education or Mercor work</li></ul><button class="btn btn-primary" onclick="toggleChat(true)">Open the Chatbot →</button></div></article>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies">
+    <div class="sec-head"><div><div class="kicker"><img class="sigil" src="assets/dragon-sigil.webp" alt=""/>04 — Hobbies & Music</div><h2>Instruments & Sound</h2></div><p>Outside AI, I build instruments and run SyEn3rgy Music — a nonprofit music-education project transforming how people learn through creativity, leadership, and technology.</p></div>
+    <div class="grid3">
+      <article class="card inst green"><div class="price">DECENT SAMPLER · DARK AMBIENT DRONE</div><h3>ABYSS</h3><p>Deep, smoky drones that hold a room. Two oscillators, a vast main space, and presets that descend from Dark to Void.</p><div class="presets"><span>Dark</span><span>Deep</span><span>Ethereal</span><span>Abyssal</span><span>Void</span></div><figure class="ui-shot"><img src="assets/ui-abyss.webp" alt="The actual ABYSS Decent Sampler interface — Main page: near-black 812 × 375 panel with the Synergy Music logo, MAIN tab selected, and five large knobs — Space, Filter, Movement, Attack, Volume — ringed with green #2FA866 value arcs"/><figcaption class="ui-cap"><b><span class="cdot"></span>Main Page — The Actual Interface</b><span>812 × 375</span></figcaption></figure><figure class="art-shot"><img src="assets/plugin-abyss.webp" alt="ABYSS concept artwork — an illustration of a smoky black instrument panel with glowing green knobs and a green waveform, wreathed in dark smoke"/><figcaption class="art-cap">Concept Artwork</figcaption></figure></article>
+      <article class="card inst"><div class="price">DECENT SAMPLER · BASS SYNTH · #00BFFF</div><h3>GRAVITY</h3><p>Bass with weight — clean and round at first, then progressively grittier and darker. Deep pressure, never harsh.</p><div class="presets"><span>Round</span><span>Loam</span><span>Smoke</span><span>Magma</span><span>Bedrock</span></div><figure class="ui-shot"><img src="assets/ui-gravity.webp" alt="The actual GRAVITY Decent Sampler interface — Main page: dark charcoal 812 × 375 panel with the carved Synergy Music monogram, MAIN tab selected, and five large black knobs — Drive, Filter, Weight, Attack, Volume — ringed with electric blue #00BFFF value arcs"/><figcaption class="ui-cap"><b><span class="cdot"></span>Main Page — The Actual Interface</b><span>812 × 375</span></figcaption></figure><figure class="art-shot"><img src="assets/plugin-gravity.webp" alt="GRAVITY concept artwork — an illustration of a black metal instrument panel with three large knobs ringed in electric blue, set over rippling dark water lit by blue lightning"/><figcaption class="art-cap">Concept Artwork</figcaption></figure></article>
+      <article class="card inst violet"><div class="price">DECENT SAMPLER · CINEMATIC PADS</div><h3>STRATA</h3><p>Pads built from layers of sound — low, core, and air — like rock strata you can play. Cinematic, wide, and evolving.</p><div class="presets"><span>Dawn</span><span>Horizon</span><span>Ember</span><span>Dusk</span><span>Aurora</span></div><figure class="ui-shot"><img src="assets/ui-strata.webp" alt="The actual STRATA Decent Sampler interface — Main page: near-black 812 × 375 panel with the Synergy Music logo, MAIN tab selected, and five large knobs — Layers, Filter, Movement, Attack, Volume — ringed with deep blue #5B7AFF value arcs"/><figcaption class="ui-cap"><b><span class="cdot"></span>Main Page — The Actual Interface</b><span>812 × 375</span></figcaption></figure><figure class="art-shot"><img src="assets/plugin-strata.webp" alt="STRATA concept artwork — an illustration of three layered glass rows with blue-lit knobs and waveforms over dark layered rock strata"/><figcaption class="art-cap">Concept Artwork</figcaption></figure></article>
+    </div>
+    <div class="card" style="margin-top:16px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
+      <div style="max-width:680px"><h3>SyEn3rgy Music</h3><p>My YouTube channel and nonprofit music-education project (@syen3rgymusic) — dark, cinematic, ambient work, and a showcase for the instrument family above. Music is not a side hobby; it’s where my ear for AI evaluation was trained.</p></div>
+      <!-- Learn More link: Jake to set the destination URL later (replace href="#") -->
+      <a class="btn btn-primary" href="#" style="flex:none">Learn More</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="cta-band">
+      <div><div class="kicker"><img class="sigil" src="assets/dragon-sigil.webp" alt=""/>05 — Contact</div><h2>Let’s build something reliable.</h2><p>Based in New York, NY. Interested in AI Trainer / Evaluator, AI Data, and junior AI Engineer opportunities — and in collaborations at the intersection of AI and music technology.</p><p style="margin-top:10px;font-size:14px">The fastest way to learn about my background is the assistant on this page — it knows my skills, projects, and training, and answers instantly.</p></div>
+      <div style="display:grid;gap:10px"><button class="btn btn-primary" onclick="toggleChat(true)">Ask the Dragon Assistant</button><a class="btn btn-ghost" href="#projects">Review Projects</a><a class="btn btn-ghost" href="#top">Back to Top ↑</a></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer><div class="wrap footer-row"><span style="display:inline-flex;align-items:center;gap:9px"><img class="sigil" src="assets/dragon-sigil.webp" alt=""/>© 2026 Jake Robertson — AI Engineer, New York, NY</span><span>Electric Blue Dragon · GRAVITY Blue #00BFFF · Built in HTML / CSS / JavaScript</span></div></footer>
+
+<!-- CHATBOT -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Open chat with Jake's Dragon Assistant"><span class="chat-fab-icon" aria-hidden="true"><img src="assets/dragon-sigil.webp" alt=""/></span> Ask Jake’s Assistant</button>
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chatbot assistant">
+  <div class="chat-head"><div class="avatar" style="overflow:hidden;padding:0"><img src="assets/dragon-sigil.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"/></div><div><strong>Dragon Assistant</strong><span>Answers from this page only · No made-up claims</span></div><button class="chat-close" onclick="toggleChat(false)" aria-label="Close chat">✕</button></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="quick" id="quickPrompts"></div>
+  <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Ask about skills, projects, education…" autocomplete="off"/><button type="submit">Send</button></form>
+</div>
+
+<script>
+(function(){
+  var v=document.querySelector('.dragon-video');
+  if(!v) return;
+  v.muted=true;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function apply(){
+    if(reduce.matches){ v.removeAttribute('autoplay'); try{v.pause();}catch(e){} }
+    else { var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+  }
+  if(reduce.addEventListener) reduce.addEventListener('change', apply);
+  apply();
+})();
+</script>
+<script>
+const KB=[
+ {k:["graphic design","graphix","logo","branding","brand identity","flyer","poster","packaging","album cover","magazine cover","book cover","business card","t-shirt","brochure","photo rendering","syen3rgy graphix"],a:"Jake is a graphic designer and founder of SyEn3rgy GraphiX, LLC (started 2019, @syen3rgygraphix_official on Instagram), built on his Graphic Design Associates Degree from Hickey College (Dec 2011). His design work includes logo design and brand identity, business cards, websites and web design, album and magazine covers, book covers, packaging design, flyers and posters, t-shirt designs, brochures, social media graphics and banners, professional photo rendering, promotional video and content editing, typography, and layout and composition."},
+ {k:["skill","python","code","coding","language","program","tech stack","javascript","java","html","css"],a:"Jake's technical skills are Python, HTML/CSS, JavaScript, and Java. His strongest professional skill is AI evaluation and rubric-based QA (through Mercor). He's also skilled in data annotation, content QA, PII identification and redaction, prompt-focused review, Decent Sampler, and UI design for instruments — plus graphic design through SyEn3rgy GraphiX: logos, brand identity, flyers, posters, album and magazine covers, packaging, and web design."},
+ {k:["mercor","work","job","experience","trainer","data specialist","evaluation","evaluate"],a:"Jake works as a Data Specialist / AI Trainer doing AI evaluation work through Mercor — reviewing model deliverables, applying quality rubrics, and checking AI-generated content for accuracy and instruction-following. This page doesn't list a phone or email, and I won't invent job details beyond what's shown here."},
+ {k:["project","build","portfolio","chatbot"],a:"Jake's featured projects are: 1) AI Evaluation Practice through Mercor, 2) The Virtual Instrument Family for Decent Sampler — ABYSS, GRAVITY, and STRATA, and 3) This portfolio site itself, hand-built in HTML/CSS/JavaScript with this chatbot. The chatbot answers only from information on this page."},
+ {k:["abyss"],a:"ABYSS is Jake's dark ambient drone instrument for Decent Sampler. It has two oscillators and presets named Dark, Deep, Ethereal, Abyssal, and Void. It's part of his SyEn3rgy Music instrument family."},
+ {k:["gravity"],a:"GRAVITY is Jake's bass synth for Decent Sampler, in electric blue #00BFFF — the accent color of this site. Its presets in order are Round, Loam, Smoke, Magma, and Bedrock — starting clean and round, growing grittier and darker."},
+ {k:["strata"],a:"STRATA is Jake's cinematic pads instrument for Decent Sampler, built from layers of sound (Low / Core / Air). Proposed presets include Dawn, Horizon, Ember, Dusk, and Aurora."},
+ {k:["instrument","music","syen3rgy","synergy","youtube","hobb"],a:"Music is central to Jake's work. He runs SyEn3rgy Music (pronounced 'Synergy'), a nonprofit music-education project and YouTube channel (@syen3rgymusic), and builds virtual instruments — ABYSS (drone), GRAVITY (bass), and STRATA (pads) — for Decent Sampler."},
+ {k:["education","school","college","lehman","ibm","certificate","degree","study","coursera","music production","graphic design","hickey","lafs"],a:"Jake's education: a Bachelor's degree in Music Production from The Los Angeles Film School (LAFS), graduating May 2, 2027; a Graphic Design Associates Degree from Hickey College, completed in December 2011; two IBM Professional Certificates on Coursera in progress — Generative AI Engineering and AI Developer (both about halfway, sharing most courses, including HTML/CSS/JavaScript); and a planned B.S. in Computer Science at Lehman College starting Fall 2027, on the software / AI engineer route."},
+ {k:["where","location","new york","live","based"],a:"Jake is based in New York, NY."},
+ {k:["contact","email","phone","hire","reach"],a:"This page doesn't publish Jake's phone or email, so I can't share contact details I don't have. Jake is interested in AI Trainer / Evaluator, AI Data, and junior AI Engineer opportunities, and collaborations in AI + music technology. You can keep asking me about his skills and projects here."},
+ {k:["who","about","jake","robertson","background"],a:"Jake Robertson is based in New York, NY, working as a Data Specialist / AI Trainer. His firm goal is to become an AI Engineer and Software Engineer. He is working toward that goal by evaluating AI systems and doing evaluation work through Mercor, completing the IBM Generative AI Engineering and AI Developer Professional Certificates, and building toward a Lehman College B.S. in Computer Science starting Fall 2027. He holds a Graphic Design Associates Degree from Hickey College (Dec 2011), graduates with a Bachelor's in Music Production from LAFS in May 2027, and builds Decent Sampler instruments (ABYSS, GRAVITY, STRATA) under SyEn3rgy Music."},
+ {k:["hello","hi","hey"],a:"Hello! I'm Jake's Dragon Assistant. Ask me about his skills (Python, HTML/CSS, JavaScript, Java), his Mercor AI evaluation work, his IBM Professional Certificates, Lehman plans, or his instruments ABYSS, GRAVITY, and STRATA."},
+];
+const FALLBACK="I can only answer from what's on this page. Try asking about Jake's skills, his Mercor AI evaluation work, his projects, his graphic design with SyEn3rgy GraphiX, his IBM Professional Certificates, Lehman College plans, or his instruments ABYSS, GRAVITY, and STRATA.";
+const panel=document.getElementById('chatPanel'), bodyEl=document.getElementById('chatBody'), form=document.getElementById('chatForm'), input=document.getElementById('chatInput');
+let greeted=false;
+function toggleChat(force){
+  const open = typeof force==='boolean'? force : !panel.classList.contains('open');
+  panel.classList.toggle('open', open);
+  document.getElementById('chatFab').style.display = open? 'none':'inline-flex';
+  if(open && !greeted){ greeted=true; addMsg("Hi — I'm the Dragon Assistant for Jake Robertson, AI Engineer in New York, NY. I answer only from this page. Ask me about Jake's skills, projects, Mercor work, education, or instruments.", 'bot'); }
+  if(open) setTimeout(()=>input.focus(),80);
+}
+function addMsg(text, who){
+  const d=document.createElement('div'); d.className='msg '+who; d.textContent=text; bodyEl.appendChild(d); bodyEl.scrollTop=bodyEl.scrollHeight; return d;
+}
+function answer(q){
+  const s=q.toLowerCase();
+  let best=null, score=0;
+  KB.forEach(item=>{ let sc=0; item.k.forEach(k=>{ if(s.includes(k)) sc+= k.length>4?2:1; }); if(sc>score){score=sc; best=item;} });
+  return score>0? best.a : FALLBACK;
+}
+form.addEventListener('submit', e=>{
+  e.preventDefault();
+  const q=input.value.trim(); if(!q) return;
+  addMsg(q,'user'); input.value='';
+  const t=addMsg('Thinking…','bot'); t.classList.add('typing');
+  setTimeout(()=>{ t.classList.remove('typing'); t.textContent=answer(q); bodyEl.scrollTop=bodyEl.scrollHeight; }, 420);
+});
+const quick=["What are Jake's skills?","Tell me about GRAVITY","What does Jake do at Mercor?","What's his education path?","What instruments has he built?","What graphic design does Jake do?"];
+const qp=document.getElementById('quickPrompts');
+quick.forEach(q=>{ const b=document.createElement('button'); b.type='button'; b.textContent=q; b.onclick=()=>{ input.value=q; form.requestSubmit(); }; qp.appendChild(b); });
+</script>
+</body>
+</html>
