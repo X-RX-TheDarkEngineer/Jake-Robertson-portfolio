@@ -1,4 +1,4 @@
-# Electric Blue Dragon — AI Portfolio
+# Jake Robertson — AI Portfolio
 
 Jake Robertson's AI portfolio site. Cinematic, dark, minimalistic and clean.
 
@@ -6,7 +6,7 @@ Jake Robertson's AI portfolio site. Cinematic, dark, minimalistic and clean.
 
 ## What's in it
 
-- Hero with the Electric Blue Dragon emblem and looping dragon video
+- Hero with the dragon emblem and looping dragon video
 - About Me — Applied AI engineer and AI domain task architect
 - Resume / Skills — including Top Skills (Context Engineering, Token Prediction, Prompt Engineering, RLHF, RAG, Python, Synthetic Data Generation, Large Language Models, Generative AI, AI Data Annotation & Evaluation), and Haitian Creole — Elementary
 - Certifications — nine certifications (Mercor, IBM, Marquis Who's Who, LinkedIn), plus the two IBM Professional Certificates in progress
