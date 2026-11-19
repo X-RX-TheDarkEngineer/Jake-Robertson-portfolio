@@ -77,7 +77,7 @@ Section `id="hobbies"`, kicker "04 — Hobbies & Music", heading "Instruments & 
 
 ## 10. Contact — lines 339–345
 
-Section `id="contact"`, the `.cta-band`: "Let's build something reliable." with the note that Jake is interested in AI Trainer / Evaluator, AI Data and junior AI Engineer roles, and collaborations in AI + music technology. The buttons are "Ask Jake’s Assistant" (opens the chatbot), GitHub — @Xado-TheDarkEngineer, LinkedIn — Jay Robertson, "Review Projects" and "Back to Top ↑". No phone number or email is published on the page.
+Section `id="contact"`, the `.cta-band`: "Let's build something reliable." with the note that Jake is interested in AI Trainer / Evaluator, AI Data and junior AI Engineer roles, and collaborations in AI + music technology. The buttons are "Ask Jake’s Assistant" (opens the chatbot), GitHub — @X-RX-TheDarkEngineer, LinkedIn — Jay Robertson, "Review Projects" and "Back to Top ↑". No phone number or email is published on the page.
 
 ## 11. Footer — line 347
 
